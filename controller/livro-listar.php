@@ -11,5 +11,17 @@
         $resposta = $livro->getLivro($id);
         return $resposta;
     }
+    function listarTodosFornecedor(){
+        require_once '../classes/Fornecedor.class.php';
+        $fornecedor = new Fornecedor();
+        $resposta = $fornecedor->getFornecedor();
+        return $resposta;
+    }
+    function listarUmFornecedor($id){
+        require_once '../classes/Fornecedor.class.php';
+        $fornecedor = new Fornecedor();
+        $resposta = $fornecedor->getFornecedor($id);
+        return $resposta;
+    }
 ?>
 
