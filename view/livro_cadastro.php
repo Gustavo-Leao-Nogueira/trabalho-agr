@@ -7,9 +7,6 @@
 
 <div class="container">
 	<form class="text-center border border-light p-5" action="../controller/livro-cadastrar.php" method="post">
-
-	
-
 	 	<div class="row">
 	 		 <h2 class="h4 mb-4">Cadastro Livro</h2>
 	 	</div>

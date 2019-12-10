@@ -57,7 +57,7 @@ class Livro{
 
     function updateLivro(){
         $sql = "UPDATE livro l SET l.id_fornecedor = :id_fornecedor, l.titulo :livro, l.ano_publicacao = :ano_publicacao, l.edicao = :edicao, l.editora = :editora  WHERE l.id = :id;";
-        $resposta = $this->banco->executar($sql, $this->getFornecedor());
+        $resposta = $this->banco->executar($sql, $this->getLivro());
         return $resposta;
     }
 
