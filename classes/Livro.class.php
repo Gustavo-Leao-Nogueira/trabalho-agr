@@ -11,7 +11,7 @@ class Livro{
     private $editora;
     private $banco;
 
-    function __construct($id=null, $id_fornecedor=null, $titulo='', $ano_publicacao=0, $edicao=0, $editora=0){ 
+    function __construct($id=null, $id_fornecedor=null, $titulo='', $ano_publicacao=0, $edicao=0, $editora=''){ 
         $this->id = $id; 
         $this->id_fornecedor = $id_fornecedor;  
         $this->titulo = $titulo;  

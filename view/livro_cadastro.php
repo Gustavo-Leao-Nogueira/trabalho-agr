@@ -6,16 +6,31 @@
 ?>
 
 <div class="container">
-	<form class="text-center border border-light p-5" action="#!">
+	<form class="text-center border border-light p-5" action="../controller/livro-cadastrar.php" method="post">
+
+	
+
 	 	<div class="row">
 	 		 <h2 class="h4 mb-4">Cadastro Livro</h2>
 	 	</div>
- 		<div class="form-group">
- 			<input type="text" id="tituloLivro" name="tituloLivro" class="form-control mb-4" placeholder="Título do livro">
+ 		<?php
+
+		require_once '../controller/livro-listar.php';
+		$lista_de_fornecedor = listarTodosFornecedor();
+        echo '<select name="id_fornecedor" id="id_fornecedor">';
+        while($fornecedor = $lista_de_fornecedor->fetch(PDO::FETCH_ASSOC)){
+            echo '<option value="'.$fornecedor['id'].'">'.$fornecedor['nome'].'</option>';
+        }
+        echo '</select>';
+		?>
+
+
+	 	<div class="form-group">
+ 			<input type="text" id="titulo" name="titulo" class="form-control mb-4" placeholder="Título do livro">
  		</div>
 	 	
 		<div class="form-group">
-			<input type="number" name="anoPubli" id="anoPubli" class="form-control mb-4" placeholder="Ano de publicação">
+			<input type="number" name="ano_publicacao" id="ano_publicacao" class="form-control mb-4" placeholder="Ano de publicação">
 	    </div>
 		<div class="form-group">
 			<input type="number" id="edicao" name="edicao" class="form-control mb-4" placeholder="Edição">
