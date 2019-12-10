@@ -8,7 +8,7 @@
    
 
 <div class="container">
-
+	<!--
 	<form class="text-center border border-light p-5" action="../controller/funcionario-cadastrar.php" method="post">
 		
 		<div class="row">
@@ -17,14 +17,9 @@
 				  <h2 class="h4 mb-4">Cadastro Funcionário</h2>
 			 </div>
 			<div class="form-group">
-			<!-- Login -->
-				<input type="text" name="nome" id="nome" class="form-control mb-4" placeholder="Nome ">
+		<input type="text" name="nome" id="nome" class="form-control mb-4" placeholder="Nome ">
 			</div>
-			<!--<div class="form-group">		    
-			 Data de contratação 		
-			 <input class="form-control mb-4 datepicker" data-date-format="mm/dd/yyyy">
-				 <input type="date" name="" id="" class="form-control mb-4" placeholder="Data de contratação"> 
-			</div>-->
+			
 		   
 			<div class="form-group left">
 				<button type="submit" class="btn btn-primary">Enviar</button>
@@ -38,6 +33,65 @@
 			</div>
 		</div>
 	</form>
+-->
+	<?php	
+			if($_GET){
+				if(isset($_GET['id'])){		
+					require_once '../controller/funcionario-listar.php';
+					$lista_de_funcionario = listarUm($_GET['id']);
+					
+					
+					
+					echo '<form class="text-center border border-light p-5" action="../controller/funcionario-alterar.php" method="post">';
+						echo '<div class="row">';
+							echo '<div class="col-8 ">';
+							echo '<div class="row">';
+								echo '<h2 class="h4 mb-4">Cadastro Funcionário</h2>';
+							echo '</div>';
+							echo '<div class="form-group">';
+							while($funcionario = $lista_de_funcionario->fetch(PDO::FETCH_ASSOC)){
+								echo '<input type="text" name="nome" id="nome" class="form-control mb-4" placeholder="Nome " value="'.$funcionario['nome'].'">';				
+								echo '<input type="hidden" name="id_cliente" id="id_cliente" value="'.$funcionario['id'].'">';
+							}
+							echo '</div>';				
+										
+							echo '<div class="form-group left">';
+								echo '<button type="submit" class="btn btn-primary">Enviar</button>';
+								echo '<button type="reset" class="btn btn-secondary">Apagar</button>';	    
+							echo '</div>';
+							echo '</div>';				
+							echo '<div class="col-3 ">';
+								echo '<img src="../imgs/imagem.png"  class="img-fluid imagem-media"  />';
+							echo '</div>';
+						echo '</div>';
+					echo '</form>';
+				}
+			}
+			else{
+						
+					
+					echo '<form class="text-center border border-light p-5" action="../controller/funcionario-cadastrar.php" method="post">';
+						echo '<div class="row">';
+							echo '<div class="col-8 ">';
+							echo '<div class="row">';
+								echo '<h2 class="h4 mb-4">Cadastro Funcionário</h2>';
+							echo '</div>';
+							echo '<div class="form-group">';
+								echo '<input type="text" name="nome" id="nome" class="form-control mb-4" placeholder="Nome " >';				
+							echo '</div>';				
+										
+							echo '<div class="form-group left">';
+								echo '<button type="submit" class="btn btn-primary">Enviar</button>';
+								echo '<button type="reset" class="btn btn-secondary">Apagar</button>';	    
+							echo '</div>';
+							echo '</div>';				
+							echo '<div class="col-3 ">';
+								echo '<img src="../imgs/imagem.png"  class="img-fluid imagem-media"  />';
+							echo '</div>';
+						echo '</div>';
+					echo '</form>';
+			}
+	?>
 
 </div>
 

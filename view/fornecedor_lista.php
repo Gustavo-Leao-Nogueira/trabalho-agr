@@ -9,31 +9,31 @@
 	<div class="row">
        <h2 class="h4 mb-4">Fornecedores</h2>
     </div>
-	<table class="table table-striped">
-	  <thead>
-	    <tr>
-	     	<th scope="col">Id</th>
-	     	<th scope="col">Nome</th>
-	     	<th scope="col">Endereço</th>
-	     	<th scope="col">Cidade</th>
-	     	<th scope="col">Telefone</th>
-	     	<th scope="col"></th>
-	     	<th scope="col"></th>
-
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <tr>
-	     	<th scope="row">(id)</th>
-	    	<td>(nome)</td>
-	    	<td>(endereço)</td>
-	    	<td>(cidade)</td>
-	    	<td>(telefone)</td>
-	    	<td><a href="../view/fornecedor_cadastro.php?id=0">Alterar</a></td>
-	    	<td><a href="#">Excluir</a></td>
-	    </tr>
-	  </tbody>
-	</table>
+	<?php
+		require_once '../controller/fornecedor-listar.php';
+		$lista_de_fornecedor = listarTodos();
+		
+		echo '<table class="table table-striped">';
+		echo '<thead>';
+			echo '<tr>';
+				echo 'echo <th scope="col">Id</th>';
+				echo '<th scope="col">Nomes</th>';
+				echo '<th scope="col"></th>';
+				echo '<th scope="col"></th>';
+			echo '</tr>';
+		echo '</thead>';
+		echo '<tbody>';
+		while($fornecedor = $lista_de_fornecedor->fetch(PDO::FETCH_ASSOC)){
+				echo '<tr>';
+					echo '<th scope="row">'.$fornecedor['id'].'</th>';
+					echo '<td>'.$fornecedor['nome'].'</td>';
+					echo '<td><a href="../view/funcionario_cadastro.php?id='.$fornecedor['id'].'">'.'Alterar'.'</a></td>';
+					echo '<td><a href=../controller/funcionario-apagar.php?id='.$fornecedor['id'].'>'.'Excluir'.'</a></td>';
+				echo '</tr>';
+		}
+		echo '</tbody>';
+		echo '</table>';
+		?>
 </div>
 
 <?php require_once '../includes/Footer.inc.php'; ?>

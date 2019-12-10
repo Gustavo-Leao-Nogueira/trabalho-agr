@@ -1,8 +1,8 @@
 <?php
     if($_POST){
-        if(isset($_POST['id']) and isset($_POST['nome'])){
+        if(isset($_POST['id_cliente']) and isset($_POST['nome'])){
             require_once '../classes/Funcionario.class.php';
-            $funcionario = new Funcionario($_POST['id'], $_POST['nome']);
+            $funcionario = new Funcionario($_POST['id_cliente'], $_POST['nome']);
             $funcionario->updateFuncionario();
         }
     }

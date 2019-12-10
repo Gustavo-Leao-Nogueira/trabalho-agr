@@ -56,7 +56,7 @@ class Estoque{
     }
 
     function updateEstoque(){
-        $sql = "UPDATE livro l SET l.id_fornecedor = :id_fornecedor, l.titulo :livro, l.ano_publicacao = :ano_publicacao, l.edicao = :edicao, l.editora = :editora  WHERE l.id = :id;";
+        $sql = "UPDATE estoque e SET  e.id_livro :id_livro, e.id_funcionario = :id_funcionario, e.quantidade_total :quantidade_total , e.quantidade_recebida = :quantidade_recebida, e.data_atualizacao = :data_atualizacao WHERE e.id = :id;";
         $resposta = $this->banco->executar($sql, $this->getEstoque());
         return $resposta;
     }

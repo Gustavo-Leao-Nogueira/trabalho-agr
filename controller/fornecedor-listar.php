@@ -2,7 +2,7 @@
     function listarTodos(){
         require_once '../classes/Fornecedor.class.php';
         $fornecedor = new Fornecedor();
-        $resposta = $fornecedor->getFornecedor();
+        $resposta = $fornecedor->getFornecedores();
         return $resposta;
     }
     function listarUm($id){

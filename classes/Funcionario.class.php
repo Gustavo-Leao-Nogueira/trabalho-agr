@@ -44,7 +44,7 @@ class Funcionario{
     }
 
     function updateFuncionario(){
-        $sql = "UPDATE funcionario f SET f.nome = :nome WHERE c.id = :id;";
+        $sql = "UPDATE funcionario f SET f.nome = :nome WHERE f.id = :id;";
         $resposta = $this->banco->executar($sql, $this->getFuncionario());
         return $resposta;
     }
