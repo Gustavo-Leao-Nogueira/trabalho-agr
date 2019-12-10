@@ -14,13 +14,25 @@
     function listarTodosFornecedor(){
         require_once '../classes/Fornecedor.class.php';
         $fornecedor = new Fornecedor();
-        $resposta = $fornecedor->getFornecedor();
+        $resposta = $fornecedor->getFornecedores();
         return $resposta;
     }
     function listarUmFornecedor($id){
         require_once '../classes/Fornecedor.class.php';
         $fornecedor = new Fornecedor();
         $resposta = $fornecedor->getFornecedor($id);
+        return $resposta;
+    }
+    function listarTodosFuncionario(){
+        require_once '../classes/Funcionario.class.php';
+        $funcionario = new Funcionario();
+        $resposta = $funcionario->getFuncionarios();
+        return $resposta;
+    }
+    function listarUmFuncionario($id){
+        require_once '../classes/Funcionario.class.php';
+        $funcionario = new Funcionario();
+        $resposta = $funcionario->getFuncionario($id);
         return $resposta;
     }
 ?>

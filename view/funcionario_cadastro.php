@@ -9,7 +9,7 @@
 
 <div class="container">
 
-	<form class="text-center border border-light p-5" action="#!">
+	<form class="text-center border border-light p-5" action="../controller/funcionario-cadastrar.php" method="post">
 		
 		<div class="row">
 			<div class="col-8 ">
@@ -18,7 +18,7 @@
 			 </div>
 			<div class="form-group">
 			<!-- Login -->
-				<input type="text" name="nomeFuncionario" id="nomeFuncionario" class="form-control mb-4" placeholder="Nome ">
+				<input type="text" name="nome" id="nome" class="form-control mb-4" placeholder="Nome ">
 			</div>
 			<!--<div class="form-group">		    
 			 Data de contratação 		

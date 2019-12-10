@@ -26,7 +26,10 @@ class Fornecedor{
         if($id == null){
             return array(
                 ":id" => $this->id,
-                ":nome" => $this->nome
+                ":nome" => $this->nome,
+                ":endereco" => $this->endereco,
+                ":cidade" => $this->cidade,
+                ":telefone" => $this->telefone
             );
         }
         else{

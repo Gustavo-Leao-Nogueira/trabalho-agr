@@ -10,7 +10,26 @@
     <div class="row">
        <h2 class="h4 mb-4">Cadastro Estoque</h2>
     </div>
+    <?php 
+
+        require_once '../controller/livro-listar.php';
+        $lista_de_livros = listarTodos();
+        echo '<selec name="livro" id="livro">';
+        while($livro = $lista_de_livros->fetch(PDO::FETCH_ASSOC)){
+            echo '<option value="'.$livro['id'].'">'.$livro['titulo'].'</option>';
+        }
+        echo '</select>';
+
+        
+        $lista_de_funcionario = listarTodosFuncionario();
+        echo '<select name="funcionario" id="funcionario">';
+        while($funcionario = $lista_de_funcionario->fetch(PDO::FETCH_ASSOC)){
+            echo '<option value="'.$funcionario['id'].'">'.$funcionario['nome'].'</option>';
+        }
+        echo '</select>';
     
+    
+    ?>
     <div class="form-group">
       <input type="number" name="quantidadeTotal" id="quantidadeTotal" class="form-control mb-4" placeholder="Quantidade total">
     </div>
