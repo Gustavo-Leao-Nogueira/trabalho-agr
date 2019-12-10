@@ -27,7 +27,7 @@ class Livro{
     function getLivro($id=null){
         if($id == null){
             return array(
-                ":id" => $this->id, 
+                ":id" => intval($this->id), 
                 ":id_fornecedor" => $this->id_fornecedor,  
                 ":titulo" => $this->titulo,  
                 ":ano_publicacao" => $this->ano_publicacao,  
@@ -56,7 +56,9 @@ class Livro{
     }
 
     function updateLivro(){
-        $sql = "UPDATE livro l SET l.id_fornecedor = :id_fornecedor, l.titulo :livro, l.ano_publicacao = :ano_publicacao, l.edicao = :edicao, l.editora = :editora  WHERE l.id = :id;";
+var_dump($this->getLivro());
+
+        $sql = "UPDATE livro l SET l.id_fornecedor = :id_fornecedor, l.titulo :titulo, l.ano_publicacao = :ano_publicacao, l.edicao = :edicao, l.editora = :editora  WHERE l.id = :id;";
         $resposta = $this->banco->executar($sql, $this->getLivro());
         return $resposta;
     }

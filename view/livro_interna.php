@@ -5,41 +5,41 @@
     require_once '../includes/Nav.inc.php'; 
 ?>
     
-<div class="container"> 
-    <div class="row">
-    	<h2 class="h4 mb-4">Fornecedores</h2>
-    </div>
-	<div class="row">
-		<div class="col col-md-4">
-			<h3>Use a cabeça! Python</h3>
-			<img class="livro-capa" src="../imgs/livro-python.jpg">
-		</div>
-		<div class="col paddingTop">
-			<p>
-				<strong>Ano</strong><br>2001
-			</p>
-			<p>
-				<strong>Editora</strong><br>Alta Books
-			</p>	
-			<p>
-				<strong>Id Funcionário</strong><br>2
-			</p>
-			<p>
-				<strong>Edição</strong><br>2
-			</p>
-			<p>
-				<strong>Descrição</strong><br>
-		    <p>
-		    	Python utiliza um formato visualmente rico, projetado para o modo como seu cérebro funciona e não uma abordagem com muito texto, que lhe dá sono. "Onde outros livros começam com a teoria e passam para os exemplos, o Use a Cabeça! Python salta diretamente para o código e explica a teoria à medida em que você lê.
-		    </p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="form-group left">
-			<a href="../view/livro_cadastro.php" class="btn btn-primary">Editar</a>
-			<a href="#" class="btn btn-secondary">Apagar</a>	    
-		</div>
-	</div>
-</div>
+	<?php
+if($_GET){
+	require_once '../controller/livro-listar.php';
+	$lista_de_livro = listarUm($_GET['id']);
 
+	while($livro = $lista_de_livro->fetch(PDO::FETCH_ASSOC)){
+		echo '<div class="container">'; 
+			echo '<div class="row">';
+				echo '<div class="col col-md-4">';
+					echo '<h3>'.$livro['titulo'].'</h3>';
+					echo '<img class="livro-capa" src="../imgs/livro-python.jpg">';
+				echo '</div>';
+				echo '<div class="col paddingTop">';
+					echo '<p>';
+						echo '<strong>Ano</strong><br> '.$livro['ano_publicacao'];
+					echo '</p>';
+					echo '<p>';
+						echo '<strong>Editora</strong><br>'.$livro['editora'];
+					echo '</p>';	
+					echo '<p>';
+						echo '<strong>Id Funcionário</strong><br>'.$livro['id_fornecedor'];
+					echo '</p>';
+					echo '<p>';
+						echo '<strong>Edição</strong><br>'.$livro['edicao'];
+					echo '</p>';
+				echo '</div>';
+			echo '</div>';
+			echo '<div class="row">';
+				echo '<div class="form-group left">';
+					echo '<a href="../view/livro_cadastro.php?id='.$livro['id'].'" class="btn btn-primary">Editar</a>';
+					echo '<a href="../controller/livro-apagar.php?id='.$livro['id'].'" class="btn btn-secondary">Apagar</a>';	    
+				echo '</div>';
+			echo '</div>';
+		echo '</div>';
+	}
+}
+  ?>
 <?php require_once '../includes/Footer.inc.php'; ?>

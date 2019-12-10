@@ -17,7 +17,7 @@
 		echo '<table class="table table-striped">';
 		echo '<thead>';
 			echo '<tr>';
-				echo 'echo <th scope="col">Id</th>';
+				echo '<th scope="col">Id</th>';
 				echo '<th scope="col">Nomes</th>';
 				echo '<th scope="col"></th>';
 				echo '<th scope="col"></th>';

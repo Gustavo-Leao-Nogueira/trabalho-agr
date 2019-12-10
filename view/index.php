@@ -28,7 +28,7 @@
                         <div class="input-group pesquisa-grupo w-100 mb-3">
                             <input type="text" class="form-control" placeholder="Nome do livro" aria-label="pesquisa" aria-describedby="button-addon2">
                             <div class="input-group-append">
-                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i>Buscar</button>
                             </div>
                         </div>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="collapse form-inline" id="collapseExample">
                             <div class="card p-2 ml-3 form-inline">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="mais" id="nome" value="op1">
+                                    <input class="form-check-input" type="radio" name="mais" id="nome" value="op1" checked>
                                     <label class="form-check-label mr-4" for="nome">
                                         Nome
                                     </label>

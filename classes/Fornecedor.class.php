@@ -53,7 +53,7 @@ class Fornecedor{
     }
 
     function updateFornecedor(){
-        $sql = "UPDATE funcionario f SET f.nome = :nome, f.endereco = :endereco, f.cidade = :cidade, f.telefone = :telefone WHERE f.id = :id;";
+        $sql = "UPDATE fornecedor f SET f.nome = :nome, f.endereco = :endereco, f.cidade = :cidade, f.telefone = :telefone WHERE f.id = :id;";
         $resposta = $this->banco->executar($sql, $this->getFornecedor());
         return $resposta;
     }

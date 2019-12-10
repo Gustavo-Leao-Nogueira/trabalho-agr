@@ -4,28 +4,26 @@
     require_once '../includes/Header.inc.php';  
     require_once '../includes/Nav.inc.php'; 
 ?>
-    
-<div class="container">
-	<div class="row">
-		<h2 class="h4 mb-4">Fornecedores</h2>
-	</div>	
-  	<div class="album py-5 bg-light">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                	<a class="btn btn-sm text-white btn-primary" href="../view/livro_interna.php">Ver mais</a>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
+<div class="ml-5 mr-5 mt-5 mb-5">
+<?php
+  require_once '../controller/livro-listar.php';
+  $lista_de_livro = listarTodos();
+
+  echo '<div class="row">';
+  while($livro = $lista_de_livro->fetch(PDO::FETCH_ASSOC)){
+      echo '<div class="col-sm-3">';
+        echo '<div class="card" style="width: 18rem;">';
+        //echo '<img class="card-img-top" src="..." alt="Card image cap">';
+        echo '<div class="card-body">';
+          echo '<h5 class="card-title">'.$livro['titulo'].'</h5>';
+          echo '<p class="card-text">'.$livro['editora'].'</p>';
+          echo '<a href="../view/livro_interna.php?id='.$livro['id'].'" class="btn btn-primary">Listar</a>';
+        echo '</div>';
+      echo '</div>';
+    echo '</div>';
+  }
+  echo '</div>';
+
+  ?>
+  </div>
 <?php require_once '../includes/Footer.inc.php'; ?>
