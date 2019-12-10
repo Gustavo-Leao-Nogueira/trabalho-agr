@@ -6,7 +6,7 @@
 ?>
 
 <div class="container">
-  <form class="text-center border border-light p-5" action="../controller/livro-cadastrar .php">
+  <form class="text-center border border-light p-5" action="../controller/estoque-cadastrar.php" method="post">
     <div class="row">
        <h2 class="h4 mb-4">Cadastro Estoque</h2>
     </div>
@@ -14,7 +14,7 @@
 
         require_once '../controller/livro-listar.php';
         $lista_de_livros = listarTodos();
-        echo '<selec name="livro" id="livro">';
+        echo '<select name="id_livro" id="id_livro">';
         while($livro = $lista_de_livros->fetch(PDO::FETCH_ASSOC)){
             echo '<option value="'.$livro['id'].'">'.$livro['titulo'].'</option>';
         }
@@ -22,7 +22,7 @@
 
         
         $lista_de_funcionario = listarTodosFuncionario();
-        echo '<select name="funcionario" id="funcionario">';
+        echo '<select name="id_funcionario" id="id_funcionario">';
         while($funcionario = $lista_de_funcionario->fetch(PDO::FETCH_ASSOC)){
             echo '<option value="'.$funcionario['id'].'">'.$funcionario['nome'].'</option>';
         }
