@@ -31,11 +31,11 @@
     
     ?>
     <div class="form-group">
-      <input type="number" name="quantidadeTotal" id="quantidadeTotal" class="form-control mb-4" placeholder="Quantidade total">
+      <input type="number" name="quantidade_total" id="quantidade_total" class="form-control mb-4" placeholder="Quantidade total">
     </div>
 
     <div class="form-group">
-      <input type="number" id="quantidadeRecebida" name="quantidadeRecebida" class="form-control mb-4" placeholder="Quantidade recebida">
+      <input type="number" id="quantidade_recebida" name="quantidade_recebida" class="form-control mb-4" placeholder="Quantidade recebida">
     </div>
 
     <div class="form-group left">
